@@ -122,6 +122,13 @@ module.exports = {
       animation: {
         'forward-backward': 'forward-backward 700ms ease-in-out infinite',
       },
+      zIndex: {
+        1: '1',
+        2: '2',
+        3: '3',
+        4: '4',
+        5: '5',
+      },
     },
   },
   plugins: [require('@tailwindcss/aspect-ratio'), require('tailwind-scrollbar')],
