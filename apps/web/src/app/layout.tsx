@@ -8,6 +8,9 @@ import { ENV } from 'utils/src/env';
 import { websiteJSONLD, JSONLD } from 'utils/src/metadata/JSONLD';
 import { SEO } from 'utils/src/metadata/SEO';
 
+import DesktopNavigation from '../components/shared/DesktopNavigation';
+import Footer from '../components/shared/Footer';
+import MobileNavigation from '../components/shared/MobileNavigation';
 import './globals.css';
 
 const font = NextFont({
@@ -43,10 +46,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
   return (
     <html className={htmlClasses} lang="en">
-      <JSONLD markup={websiteJSONLD} />
-      <body className="relative overflow-x-hidden bg-grayscale-50 selection:bg-primary-200">
+      <body className="bg-background relative overflow-x-hidden selection:bg-primary-200">
+        <JSONLD markup={websiteJSONLD} />
         <SkipToMainContent />
+        <DesktopNavigation />
+        <MobileNavigation />
         <main id="main-content">{children}</main>
+        <Footer />
         <Toaster toastOptions={{ duration: 3000 }} position="top-right" />
       </body>
     </html>
