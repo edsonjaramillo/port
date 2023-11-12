@@ -8,7 +8,7 @@ import MobileMenu from './MobileMenu';
 
 export default function MobileNavigation() {
   return (
-    <nav aria-label="Mobile" className="fixed top-0 z-1 flex h-14 w-full md:hidden">
+    <nav aria-label="Mobile" className="z-1 fixed top-0 flex h-14 w-full backdrop-blur-sm md:hidden">
       <Responsive className="flex items-center justify-between">
         <Logo />
         <Hamburger />

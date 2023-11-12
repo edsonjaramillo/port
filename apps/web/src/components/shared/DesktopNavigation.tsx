@@ -10,10 +10,10 @@ import Logo from './Logo';
 
 export default function DesktopNavigation() {
   return (
-    <nav className="absolute left-0 top-0 z-1 hidden h-14 w-full md:flex" aria-label="Desktop">
+    <nav className="z-1 fixed left-0 top-0 hidden h-14 w-full backdrop-blur-sm md:flex" aria-label="Desktop">
       <Responsive className="relative flex items-center justify-between">
         <Logo />
-        <ul className="absolute inset-0 z-1 m-auto flex max-w-md items-center justify-center gap-4 lg:max-w-3xl">
+        <ul className="z-1 absolute inset-0 m-auto flex max-w-md items-center justify-center gap-4 lg:max-w-3xl">
           {navigationLinks.map((link) => (
             <DesktopLink key={link.href} href={link.href} name={link.name} />
           ))}

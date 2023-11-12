@@ -12,12 +12,12 @@ export default function MobileMenu() {
   const { mobileMenuIsOpen, setMobileMenu, toggleMobileMenu } = useMobileMenu();
 
   const blurClass = cn(
-    'absolute left-0 top-0 z-1 h-screen w-full transition-all duration-base md:hidden',
+    'z-1 fixed left-0 top-0 h-screen w-full transition-all duration-base md:hidden',
     mobileMenuIsOpen ? 'backdrop-blur-md' : 'pointer-events-none opacity-0',
   );
 
   const menuClass = cn(
-    'absolute left-0 top-0 z-1 h-screen w-80 rounded bg-gradient-to-l from-primary-800 to-primary-900 p-3 transition-transform duration-base md:hidden',
+    'z-1 fixed left-0 top-0 h-screen w-80 rounded bg-gradient-to-l from-primary-800 to-primary-900 p-3 transition-transform duration-base md:hidden',
     mobileMenuIsOpen ? 'translate-x-0' : '-translate-x-full',
   );
 
