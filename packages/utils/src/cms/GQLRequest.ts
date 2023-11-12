@@ -10,12 +10,11 @@ export class GQLRequest {
 
   async request<T>(query: string, opts?: GQLOptions): Promise<T> {
     const variables = opts?.variables || {};
-    const hasCacheRequirement = opts?.cache;
-    let cache: RequestCache | null;
-    if (hasCacheRequirement) {
-      cache = opts.cache as RequestCache;
+    let cache: RequestCache | undefined;
+    if (ENV.NODE_ENV === 'development') {
+      cache = 'no-cache';
     } else {
-      ENV.BUILDING ? (cache = 'force-cache') : (cache = 'default');
+      cache = opts?.cache || 'default';
     }
 
     const response = await fetch(this.endpoint, {
@@ -26,6 +25,7 @@ export class GQLRequest {
     });
 
     const json = await response.json();
+    if (json.errors) json.errors.map((error: any) => console.log('GQL Error: ', error.message));
 
     return json.data as T;
   }
