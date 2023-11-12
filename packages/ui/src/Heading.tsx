@@ -18,9 +18,9 @@ export const headingVariants = cva('font-bold', {
       '1': 'text-xs leading-1 tracking-1',
     },
     textColor: {
-      standard: 'text-grayscale-800',
+      standard: 'text-grayscale-50',
       gray: 'text-grayscale-neutral-light-accessible',
-      inverted: 'text-grayscale-50',
+      inverted: 'text-grayscale-800',
       none: null,
     },
     align: { left: 'text-left', center: 'text-center', right: 'text-right' },
