@@ -23,7 +23,6 @@ const font = NextFont({
 const url = ENV.URL;
 
 export const metadata: Metadata = {
-  title: "Edson Jaramillo's Portfolio",
   applicationName: "Edson Jaramillo's Portfolio",
   icons: SEO.icons(url),
   metadataBase: new URL(url),
@@ -31,7 +30,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
-  themeColor: '#123b2d',
+  themeColor: '#0a0814',
   initialScale: 1,
   width: 'device-width',
 };
@@ -41,12 +40,12 @@ type RootLayoutProps = { children: React.ReactNode };
 export default function RootLayout({ children }: RootLayoutProps) {
   const htmlClasses = cn(
     font.variable,
-    'scrollbar-track-background-900 scroll-smooth scrollbar-thin scrollbar-thumb-primary',
+    'scroll-smooth scrollbar-thin scrollbar-track-background-900 scrollbar-thumb-primary',
   );
 
   return (
     <html className={htmlClasses} lang="en">
-      <body className="bg-background relative overflow-x-hidden selection:bg-primary-200">
+      <body className="relative overflow-x-hidden bg-background selection:bg-primary-200">
         <JSONLD markup={websiteJSONLD} />
         <SkipToMainContent />
         <DesktopNavigation />
