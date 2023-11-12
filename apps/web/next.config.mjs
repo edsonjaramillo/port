@@ -10,8 +10,6 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'media.graphassets.com',
-        port: '',
-        pathname: '/*',
       },
     ],
   },
