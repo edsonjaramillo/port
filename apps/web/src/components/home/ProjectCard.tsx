@@ -1,9 +1,8 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
+import BlurImage from 'ui/src/BlurImage';
 import { Heading } from 'ui/src/Heading';
 import { Text } from 'ui/src/Text';
-import { Blur } from 'utils/src/Blur';
 import { Project } from 'utils/src/types';
 
 type ProjectCardProps = {
@@ -14,13 +13,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link href={`/projects/${project.slug}`} className="group/project-card overflow-hidden rounded">
       <div className="aspect-h-9 aspect-w-16 relative w-full overflow-hidden">
-        <Image
+        <BlurImage
           className="object-fill transition-all duration-base group-hover/project-card:scale-110"
           src={project.mainImage.url}
           alt={project.mainImage.alt}
+          blurDataURL={project.mainImage.blurDataUrl}
           fill
-          placeholder="blur"
-          blurDataURL={project.mainImage.blurDataUrl || Blur.default}
         />
       </div>
       <div className="bg-background-900 p-6">

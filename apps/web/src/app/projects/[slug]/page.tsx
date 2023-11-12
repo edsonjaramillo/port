@@ -1,5 +1,4 @@
-import Image from 'next/image';
-
+import BlurImage from 'ui/src/BlurImage';
 import { buttonVariants } from 'ui/src/Button';
 import { Heading } from 'ui/src/Heading';
 import { Responsive } from 'ui/src/Responsive';
@@ -78,7 +77,7 @@ type ScreenshotsProps = {
 function Screenshot({ image }: ScreenshotsProps) {
   return (
     <div className="aspect-h-9 aspect-w-16 h-52 w-full overflow-hidden rounded">
-      <Image className="object-fill" src={image.url} alt={image.alt} fill />
+      <BlurImage className="object-fill" src={image.url} alt={image.alt} fill blurDataURL={image.blurDataUrl} />
     </div>
   );
 }

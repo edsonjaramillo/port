@@ -1,5 +1,4 @@
-import Image from 'next/image';
-
+import BlurImage from 'ui/src/BlurImage';
 import { Heading } from 'ui/src/Heading';
 import { Text } from 'ui/src/Text';
 
@@ -16,7 +15,7 @@ export default function CTA() {
           <Text as="p" size="7" textColor="gray">{`I'm a Fullstack Developer`}</Text>
         </div>
       </div>
-      <Image src={BG} alt="Background" fill className="z-[-1] object-cover" priority />
+      <BlurImage src={BG} alt="Background" fill className="z-[-1] object-cover" priority />
     </header>
   );
 }

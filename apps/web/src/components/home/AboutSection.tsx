@@ -1,5 +1,4 @@
-import Image from 'next/image';
-
+import BlurImage from 'ui/src/BlurImage';
 import { Heading } from 'ui/src/Heading';
 import { Section } from 'ui/src/Section';
 import { Text } from 'ui/src/Text';
@@ -32,7 +31,9 @@ export default function AboutSection() {
 }
 
 function AboutMeImage() {
-  return <Image src="https://media.graphassets.com/0MIA7MUtQfa7S0JDUUTw" alt="" fill className="block object-cover" />;
+  return (
+    <BlurImage src="https://media.graphassets.com/0MIA7MUtQfa7S0JDUUTw" alt="" fill className="block object-cover" />
+  );
 }
 
 type MilestoneProps = {
