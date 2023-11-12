@@ -4,7 +4,7 @@ import { cn } from './lib/tw';
 
 export const responsiveVariants = cva('m-auto', {
   variants: {
-    size: { standard: 'w-11/12 max-w-[74rem]', half: 'w-1/2 max-w-[70rem]' },
+    size: { standard: 'w-11/12 max-w-[85rem]', half: 'w-1/2 max-w-[70rem]' },
   },
   defaultVariants: { size: 'standard' },
 });
