@@ -107,7 +107,7 @@ module.exports = {
         '9/10': '90%',
       },
       gridTemplateColumns: {
-        fluid: 'repeat(auto-fill, minmax(19rem, 1fr))',
+        fluid: 'repeat(auto-fill, minmax(21rem, 1fr))',
       },
       gap: {
         form: '1.25rem',
