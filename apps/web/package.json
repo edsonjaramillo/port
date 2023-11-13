@@ -26,7 +26,6 @@
     "schema-dts": "1.1.2",
     "ui": "workspace:*",
     "utils": "workspace:*",
-    "valibot": "0.17.0",
     "zustand": "4.4.1"
   },
   "devDependencies": {
