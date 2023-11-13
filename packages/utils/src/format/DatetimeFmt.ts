@@ -14,4 +14,16 @@ export class DatetimeFmt {
   static getTime(date: string) {
     return new Date(date).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
   }
+
+  static getFullDatetime(date: Date) {
+    return date.toLocaleString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+      timeZone: 'America/Chicago',
+    });
+  }
 }
