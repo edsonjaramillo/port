@@ -6,9 +6,14 @@ import { ENV } from 'utils/src/env';
 import { DatetimeFmt } from 'utils/src/format/DatetimeFmt';
 
 export async function GET(req: NextRequest) {
-  const { city, region, country } = req.geo;
+  const geo = req.geo;
   const date = DatetimeFmt.getFullDatetime(new Date());
-  const templateParams: UniqueVisitorEmail = { date, city, region, country };
+  const templateParams: UniqueVisitorEmail = {
+    date,
+    city: geo.city || 'Unknown',
+    country: geo.country || 'Unknown',
+    region: geo.region || 'Unknown',
+  };
 
   const emailResponse = await EmailJS.sendEmail<UniqueVisitorEmail>(ENV.EMAILJS_NEW_VISITOR_TEMPLATE, templateParams);
 
