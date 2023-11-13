@@ -10,7 +10,7 @@ export default function AboutSection() {
         <div className="relative aspect-1 overflow-hidden rounded md:m-auto md:w-96 lg:m-0 lg:w-auto">
           <AboutMeImage />
         </div>
-        <div className="flex flex-col justify-center gap-6 p-8 md:p-12">
+        <div className="flex flex-col justify-center gap-6 md:p-12">
           <Heading as="h3" size="8">
             Getting to know me
           </Heading>
