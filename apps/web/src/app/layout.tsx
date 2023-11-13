@@ -11,6 +11,7 @@ import { SEO } from 'utils/src/metadata/SEO';
 import DesktopNavigation from '../components/shared/DesktopNavigation';
 import Footer from '../components/shared/Footer';
 import MobileNavigation from '../components/shared/MobileNavigation';
+import UniqueVisitor from '../components/shared/UniqueVisitor';
 import './globals.css';
 
 const font = NextFont({
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <main id="main-content">{children}</main>
         <Footer />
         <Toaster toastOptions={{ duration: 3000 }} position="top-right" />
+        <UniqueVisitor />
       </body>
     </html>
   );
