@@ -6,8 +6,15 @@ type EmailJSResponse = {
   text: string;
 };
 
+export type UniqueVisitorEmail = {
+  date: string;
+  city: string;
+  country: string;
+  region: string;
+};
+
 export class EmailJS {
-  static async sendEmail(template_id: string, template_params: AnyObject): Promise<EmailJSResponse> {
+  static async sendEmail<T>(template_id: string, template_params: T): Promise<EmailJSResponse> {
     try {
       const res = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
         method: 'POST',
