@@ -31,7 +31,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             size="2"
             textColor="gray"
             className="block transition-all duration-base group-hover/project-card:-translate-y-1 group-hover/project-card:opacity-0">
-            Web Development
+            {project.projectType}
           </Text>
           <Text
             as="span"
