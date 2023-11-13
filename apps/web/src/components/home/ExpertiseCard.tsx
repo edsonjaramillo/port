@@ -1,18 +1,19 @@
+import { type } from 'os';
 import { ReactNode } from 'react';
 
 import { Heading } from 'ui/src/Heading';
 import { Text } from 'ui/src/Text';
 
 type ExpertiseCardProps = {
-  icon?: ReactNode;
+  icon: ReactNode;
   name: string;
   description: string;
 };
 
-export default function ExpertiseCard({ name, description }: ExpertiseCardProps) {
+export function ExpertiseCard({ icon, name, description }: ExpertiseCardProps) {
   return (
-    <div className="bg-background-900 flex flex-col gap-2 rounded p-6">
-      <Icon />
+    <div className="flex flex-col gap-2 rounded bg-background-900 p-6">
+      {icon}
       <Heading as="h3" size="6" className="line-clamp-2">
         {name}
       </Heading>
@@ -23,10 +24,67 @@ export default function ExpertiseCard({ name, description }: ExpertiseCardProps)
   );
 }
 
-function Icon() {
+type ExpertiseIconWrapperProps = React.SVGProps<SVGSVGElement>;
+
+function ExpertiseIconWrapper({ children, ...props }: ExpertiseIconWrapperProps) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" className="h-11 w-11 fill-primary-400">
-      <path d="M560-120q-17 0-28.5-11.5T520-160q0-17 11.5-28.5T560-200q47 0 83.5-18.5T680-260q0-14-13-26t-36-22l59-59q32 19 51 45t19 62q0 66-63 103t-137 37ZM183-426q-29-17-46-39.5T120-520q0-42 31-70.5T262-654q63-29 80.5-40.5T360-720q0-16-19.5-28T280-760q-25 0-42 6t-31 20q-11 11-27 13t-29-9q-13-10-15-26t9-29q19-23 54.5-39t80.5-16q72 0 116 32.5t44 87.5q0 39-29 70t-117 69q-58 25-76 37t-18 24q0 9 11.5 17.5T243-486l-60 60Zm571-118L584-714l42-42q24-24 57.5-24t56.5 24l56 56q24 23 24 56.5T796-586l-42 42ZM240-200h56l288-288-56-56-288 288v56Zm-80 80v-170l368-368 170 170-368 368H160Zm368-424 56 56-56-56Z" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-7 w-7 text-primary-500"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}>
+      {children}
     </svg>
+  );
+}
+
+export function WebDevelopmentIcon() {
+  return (
+    <ExpertiseIconWrapper>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+      />
+    </ExpertiseIconWrapper>
+  );
+}
+
+export function SEOIcon() {
+  return (
+    <ExpertiseIconWrapper>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
+      />
+    </ExpertiseIconWrapper>
+  );
+}
+
+export function UIUXIcon() {
+  return (
+    <ExpertiseIconWrapper>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z"
+      />
+    </ExpertiseIconWrapper>
+  );
+}
+
+export function ScriptingIcon() {
+  return (
+    <ExpertiseIconWrapper>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"
+      />
+    </ExpertiseIconWrapper>
   );
 }
