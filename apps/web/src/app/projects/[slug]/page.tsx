@@ -24,7 +24,7 @@ export default async function ProjectPage({ params }: PageProps) {
       <Responsive className="flex flex-col gap-8">
         <div>
           <Text as="span" textColor="gray">
-            Web Development
+            {project.projectType}
           </Text>
           <Heading as="h1" size="9">
             {project.title}
@@ -36,8 +36,12 @@ export default async function ProjectPage({ params }: PageProps) {
           </Text>
           <div className="flex flex-col gap-2">
             <div className="mr-auto flex max-w-lg gap-4">
-              <ExtraInfo />
-              <ExtraInfo />
+              <ExtraInfo title="Client" description={project.client} noWrap />
+              <ExtraInfo
+                title="Technologies"
+                //  description={project.technologies}
+                description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt nam at provident sit neque! Officia ipsam possimus eum sequi blanditiis?"
+              />
             </div>
             <div className="mr-auto mt-2 flex items-center gap-2">
               <a
@@ -47,14 +51,18 @@ export default async function ProjectPage({ params }: PageProps) {
                 className={btnRepo}>
                 <span>View Repo</span>
               </a>
-              <a
-                rel="noopener nofollow noreferrer external"
-                target="_blank"
-                href={project.websiteUrl}
-                className={btnOpenProject}>
-                <span className="transition-colors duration-base group-hover/open:text-primary-400">Open Project</span>
-                <span className="transition-transform group-hover/open:animate-forward-backward">-&gt;</span>
-              </a>
+              {project.websiteUrl && (
+                <a
+                  rel="noopener nofollow noreferrer external"
+                  target="_blank"
+                  href={project.websiteUrl}
+                  className={btnOpenProject}>
+                  <span className="transition-colors duration-base group-hover/open:text-primary-400">
+                    Visit Website
+                  </span>
+                  <span className="transition-transform group-hover/open:animate-forward-backward">-&gt;</span>
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -82,14 +90,21 @@ function Screenshot({ image }: ScreenshotsProps) {
   );
 }
 
-function ExtraInfo() {
+type ExtraInfoProps = {
+  title: string;
+  description: string;
+  noWrap?: boolean;
+};
+function ExtraInfo({ title, description, noWrap }: ExtraInfoProps) {
+  const descriptionClasses = cn(noWrap && 'whitespace-nowrap');
+
   return (
     <div className="border-t border-grayscale-neutral-light-accessible p-3">
       <Heading as="h3" size="4" className="mb-1">
-        Client
+        {title}
       </Heading>
-      <Text as="p" size="2" textColor="gray">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta, aliquam.
+      <Text as="p" size="4" textColor="gray" className={descriptionClasses}>
+        {description}
       </Text>
     </div>
   );
