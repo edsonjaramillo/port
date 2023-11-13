@@ -11,6 +11,7 @@ export class Query {
           alt
           blurDataUrl
         }
+        projectType
       }
     }
   `;
@@ -40,6 +41,9 @@ export class Query {
         }
         githubUrl
         websiteUrl
+        client
+        technologies
+        projectType
       }
     }
   `;

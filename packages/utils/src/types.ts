@@ -12,6 +12,9 @@ export type Project = {
   supportingImages: CMSImage[];
   githubUrl: string;
   websiteUrl: string;
+  client: string;
+  technologies: string;
+  projectType: string;
 };
 
 export type Asset = {
