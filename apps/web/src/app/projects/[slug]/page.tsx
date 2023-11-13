@@ -1,3 +1,5 @@
+import { type Metadata } from 'next';
+
 import BlurImage from 'ui/src/BlurImage';
 import { buttonVariants } from 'ui/src/Button';
 import { Heading } from 'ui/src/Heading';
@@ -6,12 +8,32 @@ import { Section } from 'ui/src/Section';
 import { Text } from 'ui/src/Text';
 import { cn } from 'ui/src/lib/tw';
 import { CMSClient } from 'utils/src/cms/CMSClient';
+import { SEO } from 'utils/src/metadata/SEO';
 import { CMSImage } from 'utils/src/types';
 
 type RequiredParams = { slug: string };
 type PageProps = { params: RequiredParams };
 
 const cms = new CMSClient();
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const project = await cms.getProjectBySlug(params.slug);
+  const title = `${project.title} Project`;
+  const url = `/projects/${project.slug}`;
+  return SEO.metadata({
+    title,
+    description: project.description,
+    canonical: url,
+    robots: 'index, follow',
+    openGraph: {
+      title,
+      description: project.description,
+      images: project.mainImage.url,
+      type: 'website',
+      url,
+    },
+  });
+}
 
 export default async function ProjectPage({ params }: PageProps) {
   const project = await cms.getProjectBySlug(params.slug);
@@ -37,11 +59,7 @@ export default async function ProjectPage({ params }: PageProps) {
           <div className="flex flex-col gap-2">
             <div className="mr-auto flex max-w-lg gap-4">
               <ExtraInfo title="Client" description={project.client} noWrap />
-              <ExtraInfo
-                title="Technologies"
-                //  description={project.technologies}
-                description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt nam at provident sit neque! Officia ipsam possimus eum sequi blanditiis?"
-              />
+              <ExtraInfo title="Technologies" description={project.technologies} />
             </div>
             <div className="mr-auto mt-2 flex items-center gap-2">
               <a
@@ -82,6 +100,7 @@ export default async function ProjectPage({ params }: PageProps) {
 type ScreenshotsProps = {
   image: CMSImage;
 };
+
 function Screenshot({ image }: ScreenshotsProps) {
   return (
     <div className="aspect-h-9 aspect-w-16 h-52 w-full overflow-hidden rounded">
@@ -95,12 +114,13 @@ type ExtraInfoProps = {
   description: string;
   noWrap?: boolean;
 };
+
 function ExtraInfo({ title, description, noWrap }: ExtraInfoProps) {
   const descriptionClasses = cn(noWrap && 'whitespace-nowrap');
 
   return (
     <div className="border-t border-grayscale-neutral-light-accessible p-3">
-      <Heading as="h3" size="4" className="mb-1">
+      <Heading as="h2" size="4" className="mb-1">
         {title}
       </Heading>
       <Text as="p" size="4" textColor="gray" className={descriptionClasses}>
