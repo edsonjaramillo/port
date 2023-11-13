@@ -1,4 +1,3 @@
-import { type } from 'os';
 import { ReactNode } from 'react';
 
 import { Heading } from 'ui/src/Heading';
