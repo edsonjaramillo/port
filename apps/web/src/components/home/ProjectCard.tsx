@@ -11,7 +11,10 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Link href={`/projects/${project.slug}`} className="group/project-card overflow-hidden rounded">
+    <Link
+      href={`/projects/${project.slug}`}
+      className="group/project-card overflow-hidden rounded"
+      aria-label={`View ${project.title} project`}>
       <div className="aspect-h-9 aspect-w-16 relative w-full overflow-hidden">
         <BlurImage
           className="object-fill transition-all duration-base group-hover/project-card:scale-110"
