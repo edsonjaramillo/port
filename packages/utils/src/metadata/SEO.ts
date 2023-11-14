@@ -66,6 +66,7 @@ export class SEO {
       {
         rel: 'manifest',
         url: `${url}/site.webmanifest`,
+        origin: url,
       },
       {
         rel: 'mask-icon',
