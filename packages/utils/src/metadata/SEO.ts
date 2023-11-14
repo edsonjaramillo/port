@@ -15,8 +15,8 @@ function defaultOG(url: string): Metadata['openGraph'] {
     title: "Edson Jaramillo's Portfolio",
     description: "Edson Jaramillo's Portfolio",
     images: {
-      url: 'https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg',
-      alt: "Edson Jaramillo's Portfolio Logo",
+      url: 'https://media.graphassets.com/oUI5Nl3nTn2RVU7wtA3z',
+      alt: 'Edson Jaramillo Full Stack Engineer Background',
       width: 1200,
       height: 630,
     },
