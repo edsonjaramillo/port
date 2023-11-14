@@ -14,13 +14,14 @@ const nextConfig = {
     ],
   },
   async headers() {
+    const url = process.env.URL;
     return [
       {
         source: '/site.webmanifest',
         headers: [
           {
             'key': 'Access-Control-Allow-Origin',
-            'value': '*'
+            'value': url,
           }
         ]
       }
