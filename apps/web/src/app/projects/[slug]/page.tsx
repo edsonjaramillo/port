@@ -57,7 +57,7 @@ export default async function ProjectPage({ params }: PageProps) {
             {project.description}
           </Text>
           <div className="flex flex-col gap-2">
-            <div className="mr-auto flex max-w-lg gap-4">
+            <div className="mr-auto flex max-w-2xl gap-4">
               <ExtraInfo title="Client" description={project.client} noWrap />
               <ExtraInfo title="Technologies" description={project.technologies} />
             </div>
@@ -103,8 +103,8 @@ type ScreenshotsProps = {
 
 function Screenshot({ image }: ScreenshotsProps) {
   return (
-    <div className="aspect-h-9 aspect-w-16 h-52 w-full overflow-hidden rounded">
-      <BlurImage className="object-fill" src={image.url} alt={image.alt} fill blurDataURL={image.blurDataUrl} />
+    <div className="aspect-h-[17] aspect-w-[25] h-52 w-full overflow-hidden rounded">
+      <BlurImage className="object-cover" src={image.url} alt={image.alt} fill blurDataURL={image.blurDataUrl} />
     </div>
   );
 }
