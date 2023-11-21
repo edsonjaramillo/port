@@ -17,7 +17,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       aria-label={`View ${project.title} project`}>
       <div className="aspect-h-9 aspect-w-16 relative w-full overflow-hidden">
         <BlurImage
-          className="object-fill transition-all duration-base group-hover/project-card:scale-110"
+          className="object-cover transition-all duration-base group-hover/project-card:scale-110"
           src={project.mainImage.url}
           alt={project.mainImage.alt}
           blurDataURL={project.mainImage.blurDataUrl}
