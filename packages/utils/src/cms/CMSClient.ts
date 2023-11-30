@@ -46,4 +46,13 @@ export class CMSClient {
       },
     });
   }
+
+  async getAsset(id: string) {
+    const { asset } = await this.gql.request<Res<Asset>>(Query.getAsset, {
+      variables: {
+        id,
+      },
+    });
+    return asset;
+  }
 }

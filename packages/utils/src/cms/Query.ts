@@ -76,4 +76,16 @@ export class Query {
       }
     }
   `;
+
+  static getAsset = /* GraphQL */ `
+    query GetAsset($id: ID!) {
+      asset(where: { id: $id }) {
+        id
+        url
+        width
+        height
+        blurDataUrl
+      }
+    }
+  `;
 }

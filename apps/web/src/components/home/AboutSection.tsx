@@ -2,13 +2,22 @@ import BlurImage from 'ui/src/BlurImage';
 import { Heading } from 'ui/src/Heading';
 import { Section } from 'ui/src/Section';
 import { Text } from 'ui/src/Text';
+import { CMSClient } from 'utils/src/cms/CMSClient';
 
-export default function AboutSection() {
+export default async function AboutSection() {
+  const headshot = await new CMSClient().getAsset('clplredank84x0bhcj5j67oz6');
+
   return (
     <Section header="About Me" headerAs="h2" id="about">
       <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-0">
         <div className="relative aspect-1 overflow-hidden rounded md:m-auto md:w-96 lg:m-0 lg:w-auto">
-          <AboutMeImage />
+          <BlurImage
+            src={headshot.url}
+            alt="Headshot of Edson Jaramillo"
+            fill
+            className="block object-cover"
+            blurDataURL={headshot.blurDataUrl}
+          />
         </div>
         <div className="flex flex-col justify-center gap-6 md:p-12">
           <Heading as="h3" size="8">
@@ -32,12 +41,6 @@ export default function AboutSection() {
         </div>
       </div>
     </Section>
-  );
-}
-
-function AboutMeImage() {
-  return (
-    <BlurImage src="https://media.graphassets.com/0MIA7MUtQfa7S0JDUUTw" alt="" fill className="block object-cover" />
   );
 }
 
