@@ -3,7 +3,7 @@ import { buttonVariants } from 'ui/src/Button';
 export default function DownloadResume() {
   const btnVariant = buttonVariants({ variant: 'primary', size: 'medium' });
   return (
-    <a className={btnVariant} href="/" download>
+    <a className={btnVariant} href="/resume.pdf" download>
       <span className="sr-only">Download Resume</span>
       <DownloadIcon />
       <span aria-hidden="true">Resume</span>
